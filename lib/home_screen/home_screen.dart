@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frango_home_screen/cubit/home_cubit.dart';
@@ -87,6 +88,7 @@ class HomeScreen extends StatelessWidget {
                     Card(
                       child: Column(
                         children: [
+                          const Text("Lahmacun"),
                           Padding(
                             padding: const EdgeInsets.all(24),
                             child: Container(
@@ -107,19 +109,19 @@ class HomeScreen extends StatelessWidget {
                                     ),
                                   ),
                                   const SizedBox(width: 12),
-                                  const Column(
+                                  Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Spacer(),
-                                      Text(
+                                      const Spacer(),
+                                      const Text(
                                         "Sade Lahamcun",
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 18,
                                         ),
                                       ),
-                                      SizedBox(height: 12),
+                                      const SizedBox(height: 12),
                                       Row(
                                         children: [
                                           Text("220 kcal"),
@@ -127,15 +129,29 @@ class HomeScreen extends StatelessWidget {
                                           Text("180 qram"),
                                         ],
                                       ),
-                                      SizedBox(height: 24),
-                                      Text(
-                                        "3.00 AZN",
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 18,
-                                        ),
+                                      const SizedBox(height: 24),
+                                      Row(
+                                        children: [
+                                          const Text(
+                                            "3.00 AZN",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                          const SizedBox(width: 48),
+                                          ElevatedButton(
+                                            style: ElevatedButton.styleFrom(
+                                              shape: const CircleBorder(),
+                                              foregroundColor: Colors.white,
+                                              backgroundColor: Colors.grey[800],
+                                            ),
+                                            onPressed: () {},
+                                            child: const Icon(Icons.add),
+                                          ),
+                                        ],
                                       ),
-                                      Spacer(),
+                                      const Spacer(),
                                     ],
                                   ),
                                 ],
