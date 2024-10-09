@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frango_home_screen/cubit/home_cubit.dart';
@@ -18,10 +16,13 @@ class HomeScreen extends StatelessWidget {
           height: 200,
           child: Container(
             color: Colors.yellow,
-            child: const Text("dsada", style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),),
+            child: const Text(
+              "dsada",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
         ),
         const SizedBox(height: 20),
@@ -30,7 +31,7 @@ class HomeScreen extends StatelessWidget {
           child: BlocBuilder<HomeCubit, HomeState>(
             builder: (context, state) {
               int selectedIndex = 0;
-              if(state is HomeIndexChanged){
+              if (state is HomeIndexChanged) {
                 selectedIndex = state.currentIndex;
               }
               return ListView.builder(
@@ -42,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                     onTap: () {
                       cubit.changeIndex(index);
 
-                      if(isSelected == true) {
+                      if (isSelected == true) {
                         verticalScrollController.animateTo(0,
                             duration: const Duration(microseconds: 500),
                             curve: Curves.easeInOut);
@@ -54,12 +55,12 @@ class HomeScreen extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       decoration: BoxDecoration(
                         color: Colors.blueAccent,
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(12),
                       ),
                       child: Text(
                         "$index",
-                        style: const TextStyle(color: Colors.white,
-                            fontSize: 18),
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ),
                   );
@@ -81,26 +82,125 @@ class HomeScreen extends StatelessWidget {
               itemCount: 12,
               itemBuilder: (BuildContext context, int index) {
                 final isSelected = selectedIndex == index;
-                return GestureDetector(
-                  onTap: () {
-                    log("item $index tapped");
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(24),
-                    child: Container(
-                      height: 180,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: isSelected ? Colors.yellow : Colors.purple,
-                      ),
-                      child: Center(
-                        child: Text(
-                          'Item $index',
-                          style: const TextStyle(color: Colors.white),
-                        ),
+                return Column(
+                  children: [
+                    Card(
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(24),
+                            child: Container(
+                              height: 160,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(24),
+                                color:
+                                    isSelected ? Colors.yellow : Colors.purple,
+                              ),
+                              child: Row(
+                                children: [
+                                  SizedBox(
+                                    width: 140,
+                                    height: 160,
+                                    child: Image.network(
+                                      "https://wla.berkeley.edu/images/random/random${index + 1}.jpg",
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 12),
+                                  const Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Spacer(),
+                                      Text(
+                                        "Sade Lahamcun",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                      SizedBox(height: 12),
+                                      Row(
+                                        children: [
+                                          Text("220 kcal"),
+                                          SizedBox(width: 12),
+                                          Text("180 qram"),
+                                        ],
+                                      ),
+                                      SizedBox(height: 24),
+                                      Text(
+                                        "3.00 AZN",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                      Spacer(),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(24),
+                            child: Container(
+                              height: 160,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(24),
+                                color:
+                                    isSelected ? Colors.yellow : Colors.purple,
+                              ),
+                              child: Row(
+                                children: [
+                                  SizedBox(
+                                    width: 140,
+                                    height: 160,
+                                    child: Image.network(
+                                      "https://wla.berkeley.edu/images/random/random${index + 1}.jpg",
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 12),
+                                  const Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Spacer(),
+                                      Text(
+                                        "Pendirli Lahamcun",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                      SizedBox(height: 12),
+                                      Row(
+                                        children: [
+                                          Text("290 kcal"),
+                                          SizedBox(width: 12),
+                                          Text("200 qram"),
+                                        ],
+                                      ),
+                                      SizedBox(height: 24),
+                                      Text(
+                                        "3.50 AZN",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                      Spacer(),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ),
+                  ],
                 );
               },
             );
