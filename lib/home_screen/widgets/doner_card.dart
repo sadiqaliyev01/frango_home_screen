@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frango_home_screen/data/local/frango_doner_data.dart';
+import 'package:frango_home_screen/data/local/doner_data.dart';
 import 'package:frango_home_screen/home_screen/widgets/add_button.dart';
 import 'package:frango_home_screen/home_screen/widgets/product_description.dart';
 import 'package:frango_home_screen/home_screen/widgets/product_image.dart';
